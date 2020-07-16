@@ -21,7 +21,6 @@ function Created() {
             <div className="create__block">
                 <span onClick={() => setShow(true)} className={show ? "create__button animate--form-hide" : "create__button animate--form-show"}>New board</span>
                 <form onSubmit={event => event.preventDefault()} className={show ? "create__form animate--form-show" : "create__form animate--form-hide"}>
-                    {/* {error && <div className="create__error">{error.message}</div>} */}
                     <input value={title} onChange={event => setTitle(event.target.value)} className="create__form__input" placeholder="Enter name new board"/> <br/>
                     <div className="create__form__buttons">
                         <button className="button--create" disabled={loading} onClick={btnCreate.bind(null, title)}>Create</button>
