@@ -1,0 +1,110 @@
+.animate {
+    &--form {
+        &-show {
+            z-index: 1;
+            opacity: 1;
+            transform: scale(1);
+        }
+        &-hide {
+            z-index: -1;
+            opacity: 0;
+            transform: scale(0.7);
+        }
+    }
+} 
+
+
+$create-bg: rgb(144, 238, 144);
+.create {
+    &__block {
+        position: relative;
+        max-width: 80vw;
+        margin: 0 auto 0em;
+        height: 10em;
+    }
+    &__button {
+        position: absolute;
+        text-align: center;
+        width: 5em;
+        background-color: $create-bg;
+        color: darkgreen;
+        padding: 3em 6em;
+        border-radius: 10px;
+        transition: background 0.5s ease-in;
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(100, 255, 100);
+        }
+    }
+    &__form {
+        position: absolute;
+        color: darkgreen;
+        width: 10em;
+        height: 5.5em;
+        background-color: $create-bg;
+        padding: 1em 3.5em;
+        border-radius: 10px;
+        transition: all 0.25s ease-in-out;
+        &__input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid darkgreen;
+            background-color: $create-bg;
+            margin: 1em 0;
+        }
+        &__buttons {
+            width: 100%;
+        }
+    }
+}
+
+
+$button-create-bg: rgb(30, 100, 50);
+$button-create-color: rgb(100, 255, 100);
+$button-cancel-bg: rgb(255,128,128);
+$button-cancel-color: rgb(170, 18, 18);
+@mixin create-buttons($background, $color){
+    width: 49%;
+    border: none;
+    padding: 0.5em;
+    border-radius: 5px;
+    transition: all 0.25s ease;
+    background-color: $background;
+    color: $color;
+    &:hover {
+        cursor: pointer;
+        background-color: $color;
+        color: $background;
+    }
+}
+.button {
+    &--create {
+        @include create-buttons($button-create-bg, $button-create-color);
+        margin-right: 2%;
+    }
+    &--cancel {
+        @include create-buttons($button-cancel-bg, $button-cancel-color)
+
+    }
+}
+
+
+
+$item-bg: rgb(109, 255,255);
+$item-color: rgb(0, 153, 255);
+.boards {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 80vw;
+    margin: 0 auto;
+    &__item {
+        background-color: $item-bg;
+        color: $item-color;
+        margin: 1em;
+        padding: 3em 5em;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+}

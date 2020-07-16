@@ -1,0 +1,8 @@
+@import './MainBoard/MainBoard';
+
+.main {
+    height: 95vh;
+    background: rgb(30,223,236);
+    background: linear-gradient(150deg, rgba(30,223,236,1), rgba(142,238,165,1)) no-repeat;
+    padding-top: 5vh; 
+}

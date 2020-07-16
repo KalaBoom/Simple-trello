@@ -1,0 +1,40 @@
+.active-board {
+    &__cols {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90vw;
+        margin: 0 auto;
+        &__item {
+            background-color: wheat;
+            margin: 0.5em;
+            text-align: center;
+            border: 1px solid salmon;
+            padding: 0.5em 0.2em 0.2em;
+            &__title {
+                text-transform: uppercase;
+                padding: 0.3em;
+                border: 1px solid rosybrown;
+            }
+            &__cards {
+                margin-top: 0.5em;
+                list-style-type: none;
+            }
+        }
+    }
+}
+
+.btn-create {
+    &--card {
+        background-color: royalblue;
+        cursor: pointer;
+    }
+    &--column {
+        background-color: sandybrown;
+        height: 1.5em;
+        padding: 0.5em;
+        text-transform: uppercase;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
