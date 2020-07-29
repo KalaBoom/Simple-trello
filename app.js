@@ -1,3 +1,5 @@
+const router = require('./routes/create')
+
 const 
     express  = require('express'),
     config   = require('config'),
@@ -18,6 +20,7 @@ app.use((req,res,next) => {
 
 app.use('/', routes.mainBoard)
 app.use('/create', routes.create)
+app.use('/delete', routes.del)
 
 async function start() {
     try {

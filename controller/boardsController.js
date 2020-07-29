@@ -1,4 +1,4 @@
-const models = require('../models')
+const models   = require('../models')
 
 const controllerBoardDB = () => {
     const Board = models.board
@@ -17,7 +17,7 @@ const controllerBoardDB = () => {
                 .catch(rej)
         },
         async addColumn(idBoard, titleColumn) {
-            await Board.findOne({_id: idBoard})
+            return await Board.findOne({_id: idBoard})
                 .then(board => {
                     const column = new Column({
                         title: titleColumn,
@@ -26,7 +26,7 @@ const controllerBoardDB = () => {
                     column.save()
                     board.columns.push(column)
                     board.save()
-                    console.log(`Columns ${board.columns} ${board.columns.length}`)
+                    console.log(`Columns ${board.columns.length}`)
                 })
                 .catch(e => {
                     throw new Error(e.message)
@@ -92,6 +92,33 @@ const controllerBoardDB = () => {
                     return {id: card.id, title: card.title, complite: card.complite}
                 }))
             return foundedCards
+        },
+        async deleteBoard(idBoard) {
+            await this.deleteAllColumns(idBoard)
+            await Board.deleteOne({_id: idBoard})
+        },
+        async deleteAllColumns(idBoard) {
+            const columns = this.findColumns(idBoard)
+            columns
+                .then(columns => {
+                    const ids = columns.map(col => col.id)
+                    Column.deleteMany({_id: ids}).then()
+                })
+        },
+        async deleteColumn(idColumn) {
+            await this.deleteAllCards(idColumn)
+            await Column.deleteOne({_id: idColumn})
+        },
+        async deleteAllCards(idColumn) {
+            const cards = this.findCards(idColumn)
+            cards
+                .then(cards => {
+                    const ids = cards.map(card => card.id)
+                    Card.deleteMany({_id:ids}).then()
+                })
+        },
+        async deleteCard(idCard) {
+            await Card.deleteOne({_id: idCard})
         }
     }
 }

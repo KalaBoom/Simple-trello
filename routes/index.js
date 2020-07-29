@@ -1,8 +1,10 @@
 const
     mainBoard   = require('./mainBoard'),
-    create = require('./create')
+    create = require('./create'),
+    del = require('./delete')
 
 module.exports = {
     mainBoard,
-    create
+    create,
+    del
 }

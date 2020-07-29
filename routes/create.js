@@ -19,7 +19,7 @@ router.post('/column/:board/:column', (req, res) => {
     try {
         const board = req.params.board
         const column = req.params.column
-        controller.addColumn(board, column)
+        controller.addColumn(board, column).then(() => res.send(true))
     } catch(e) {
         res.status(500).json('Something happend wrong')
     }
