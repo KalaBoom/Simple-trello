@@ -2747,3 +2747,8 @@ POST /create/card/5f255c7889c6fc26bdd683ab/card%203
 GET /5f255c7689c6fc26bdd683aa
 POST /delete/board/5f255c7689c6fc26bdd683aa
 GET /all
+GET /all
+POST /create/board/qwe
+GET /all
+GET /5f25604c172e2a2c089f1d41
+GET /all
