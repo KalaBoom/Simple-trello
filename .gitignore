@@ -15,6 +15,7 @@
 /config
 /config/default.json
 /config/production.json
+/config/*
 
 # misc
 .DS_Store
