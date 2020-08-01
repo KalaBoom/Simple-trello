@@ -13,6 +13,8 @@
 
 #config
 /config
+/config/default.json
+/config/production.json
 
 # misc
 .DS_Store
