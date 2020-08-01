@@ -101,11 +101,15 @@ const controllerBoardDB = () => {
             const columns = this.findColumns(idBoard)
             columns
                 .then(columns => {
+                    console.log('cols ' + columns)
                     const ids = columns.map(col => col.id)
-                    Column.deleteMany({_id: ids}).then()
+                    ids.forEach(async id => {
+                        this.deleteColumn(id)
+                    })
                 })
         },
         async deleteColumn(idColumn) {
+            console.log('idCOlumn',idColumn)
             await this.deleteAllCards(idColumn)
             await Column.deleteOne({_id: idColumn})
         },

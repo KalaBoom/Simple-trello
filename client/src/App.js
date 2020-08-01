@@ -41,7 +41,7 @@ function App() {
                   </Route>
           })}
         <Route exact path='/'>
-          <Context.Provider value={{boards, createBoard, loading}}>
+          <Context.Provider value={{boards, createBoard, loading, sendData, getBoards}}>
             <Home/>
           </Context.Provider>
           </Route>
