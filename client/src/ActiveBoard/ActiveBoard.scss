@@ -42,8 +42,12 @@ $create-bg: rgb(144, 238, 144);
                 list-style-type: none;
                 li {
                     position: relative;
-                    border: 1px solid $item-color;
+                    background-color: $item-color;
+                    color: $item-bg;
                     margin: 0.1em 0;
+                }
+                button {
+                    background-color: $item-color;
                 }
             }
             &:hover .btn-delete{
@@ -104,7 +108,7 @@ $create-bg: rgb(144, 238, 144);
             &__text {
                 line-height: 1.3em;
                 vertical-align: middle;
-                color: lightblue;
+                color: white;
             }
             cursor: pointer;
         }
