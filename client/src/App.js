@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react'
+import React, {useState, useEffect} from 'react'
 import {BrowserRouter as Router,Switch, Route} from 'react-router-dom'
 import Home from './MainBoard/MainBoard'  
 import Context from './Context'
@@ -12,10 +12,10 @@ function App() {
   const {sendData, loading} = useSendData()
   const {getData} = useGetData()
 
-  const getBoards =  useCallback(async () => {
+  const getBoards = async () => {
     const data = await getData('all')
     setBoards(data)
-  })
+  }
 
   useEffect(() => {
     getBoards()

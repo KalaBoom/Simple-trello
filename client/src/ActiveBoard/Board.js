@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useCallback} from 'react'
+import React, {useEffect, useState} from 'react'
 import Context from '../Context'
 import Columns from './Columns'
 import useGetData from '../hooks/getData.hook'
@@ -10,11 +10,11 @@ function Board({title, id}) {
     const {sendData} = useSendData()
     const [columns, setColumns] = useState([])
     
-    const getColumns = useCallback(async () => {
+    const getColumns = async () => {
         const data = await getData(id)
         console.log(data)
         setColumns(data)
-    })
+    }
     
     useEffect(() => {
         getColumns()
@@ -22,7 +22,7 @@ function Board({title, id}) {
 
     return(
         <div className="active-board">
-            <h1>{title}</h1>
+            <h1 className="title">{title}</h1>
             <Context.Provider value={{id, columns, setColumns, sendData, getColumns}}>
                 <Columns/>
             </Context.Provider>

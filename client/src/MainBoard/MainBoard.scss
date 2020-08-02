@@ -97,14 +97,32 @@ $item-color: rgb(0, 153, 255);
     align-items: center;
     flex-wrap: wrap;
     max-width: 80vw;
-    margin: 0 auto;
+    margin: 3em auto 0;
     &__item {
         background-color: $item-bg;
         color: $item-color;
         margin: 1em;
         padding: 3em 5em;
         border-radius: 10px;
-        text-decoration: none;
         font-weight: bold;
+        text-decoration: none;
+    }
+    &__item-block {
+        position: relative;
+        &:hover .boards__btn-delete{
+            z-index: 1;
+            opacity: 1;
+        }
+    }
+    &__btn-delete {
+        z-index: -1;
+        opacity: 0;
+        position: absolute;
+        right: 1.5em;
+        top: -3em;
+        border: none;
+        font-size: 1rem;
+        background-color: $item-bg;
+        transition: all 0.5s ease-out;
     }
 }

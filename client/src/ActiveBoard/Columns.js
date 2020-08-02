@@ -1,4 +1,4 @@
-import React, {useContext, useCallback} from 'react'
+import React, {useContext} from 'react'
 import Context from '../Context'
 import CreateColumn from './CreateColumn'
 import Cards from './Cards'
@@ -6,10 +6,10 @@ import Cards from './Cards'
 const Columns = () => {
     const {columns, sendData, getColumns} = useContext(Context)
 
-    const deleteColumn = useCallback(async idColumn => {
+    const deleteColumn = async idColumn => {
         await sendData(`/delete/column/${idColumn}`)
         getColumns()    
-    })
+    }
 
     return(
         <div className='active-board__cols'>

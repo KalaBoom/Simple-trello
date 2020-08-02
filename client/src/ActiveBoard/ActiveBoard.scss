@@ -1,40 +1,130 @@
+$item-bg: rgb(109, 255,255);
+$item-color: rgb(0, 153, 255);
+$bg: rgb(30,223,236);
+$bg-gradient: linear-gradient(150deg, rgba(30,223,236,1), rgba(142,238,165,1)) no-repeat;
+$create-bg: rgb(144, 238, 144);
+
+.title {
+    text-align: center;
+    color: $item-color;
+    background-color: $item-bg;
+    width: 30%;
+    margin: 0 auto;
+    border-radius: 1em;
+    text-transform: uppercase;
+}
+
 .active-board {
+    background: $bg;
+    background: $bg-gradient;
+    height: calc(100vh - 1em);
+    padding-top: 1em;
     &__cols {
         display: flex;
         flex-wrap: wrap;
         width: 90vw;
         margin: 0 auto;
         &__item {
-            background-color: wheat;
+            position: relative;
+            background-color: $item-bg;
+            color: $item-color;
+            border-radius: 0.1rem;
             margin: 0.5em;
             text-align: center;
-            border: 1px solid salmon;
             padding: 0.5em 0.2em 0.2em;
+            transition: all 0.5s ease-out;
             &__title {
                 text-transform: uppercase;
                 padding: 0.3em;
-                border: 1px solid rosybrown;
             }
             &__cards {
                 margin-top: 0.5em;
                 list-style-type: none;
+                li {
+                    position: relative;
+                    border: 1px solid $item-color;
+                    margin: 0.1em 0;
+                }
             }
+            &:hover .btn-delete{
+                z-index: 1;
+                opacity: 1;
+            }
+        }
+    }
+    &__form-create {
+        transition: all 0.25s ease-out;
+        &__input-text {
+            opacity: 0;
         }
     }
 }
 
-.btn-create {
-    &--card {
-        background-color: royalblue;
-        cursor: pointer;
+.form {
+    &--show {
+        z-index: 1;
+        opacity: 1;
+        transform: scale(1);
     }
-    &--column {
-        background-color: sandybrown;
-        height: 1.5em;
-        padding: 0.5em;
-        text-transform: uppercase;
-        &:hover {
+    &--hide {
+        z-index: -1;
+        opacity: 0;
+        transform: scale(0.7);
+    }
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.btn {
+    &__input {
+        font-size: 1rem;
+    }
+    &-delete {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        right: 0.2em;
+        top: 0;
+        border: none;
+        background-color: $item-bg;
+        font-size: 0.8rem;
+        transition: all 0.25s ease-out;
+    }
+    &-create {
+        &--card {
+            background-color: royalblue;
+            height: 1.5em;
+            padding: 0.3em;
+            &__text {
+                line-height: 1.3em;
+                vertical-align: middle;
+                color: lightblue;
+            }
             cursor: pointer;
+        }
+        &--column {
+            border: none;
+            border-radius: 5px;
+            background-color: $create-bg;
+            height: 1.5em;
+            text-transform: uppercase;
+            padding: 0.3em;
+            &__text {
+                color: darkgreen;
+                vertical-align: middle;
+                line-height: 1.4em;
+                font-size: 1rem;
+            }
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 }
+    
