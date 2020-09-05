@@ -1,9 +1,8 @@
-const router = require('./routes/create')
-
 const 
     express  = require('express'),
     config   = require('config'),
     fs       = require('fs'),
+    path     = require('path'),
     mongoose = require('mongoose'),
     routes   = require('./routes'),
     PORT     = config.get('port') || 5000,
@@ -17,6 +16,14 @@ app.use((req,res,next) => {
     fs.appendFile('server.log', data + '\n', () => {})
     next()
 })
+
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+   
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 app.use('/', routes.mainBoard)
 app.use('/create', routes.create)

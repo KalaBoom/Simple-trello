@@ -1,6 +1,5 @@
 const
     express     = require('express'),
-    board       = require('../models/Board'),
     controller  = require('../controller/boardsController')(),
     router      = express.Router()
 
@@ -15,7 +14,6 @@ router.get('/', (req, res) => {
 router.get('/:title', async (req, res) => {
     try {
         const title = req.params.title
-        console.log('hey', req.url, title)
         let response
         if(title === 'all') response = await controller.findBoards()
         else response = await controller.findOneBoard(title)

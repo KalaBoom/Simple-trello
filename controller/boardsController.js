@@ -26,7 +26,6 @@ const controllerBoardDB = () => {
                     column.save()
                     board.columns.push(column)
                     board.save()
-                    console.log(`Columns ${board.columns.length}`)
                 })
                 .catch(e => {
                     throw new Error(e.message)
@@ -39,7 +38,6 @@ const controllerBoardDB = () => {
                     card.save()
                     column.cards.push(card)
                     column.save()
-                    console.log(`Card ${column.title} ${column.cards}`)
                 })
                 .catch(e => {
                     throw new Error(e.message)
@@ -101,7 +99,6 @@ const controllerBoardDB = () => {
             const columns = this.findColumns(idBoard)
             columns
                 .then(columns => {
-                    console.log('cols ' + columns)
                     const ids = columns.map(col => col.id)
                     ids.forEach(async id => {
                         this.deleteColumn(id)
@@ -109,7 +106,6 @@ const controllerBoardDB = () => {
                 })
         },
         async deleteColumn(idColumn) {
-            console.log('idCOlumn',idColumn)
             await this.deleteAllCards(idColumn)
             await Column.deleteOne({_id: idColumn})
         },

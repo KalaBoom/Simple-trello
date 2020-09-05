@@ -12,7 +12,6 @@ function Board({title, id}) {
     
     const getColumns = async () => {
         const data = await getData(id)
-        console.log(data)
         setColumns(data)
     }
     

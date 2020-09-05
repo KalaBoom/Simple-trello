@@ -7,7 +7,7 @@ const Columns = () => {
     const {columns, sendData, getColumns} = useContext(Context)
 
     const deleteColumn = async idColumn => {
-        await sendData(`/delete/column/${idColumn}`)
+        await sendData(`delete/column/${idColumn}`)
         getColumns()    
     }
 

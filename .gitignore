@@ -11,12 +11,6 @@
 # production
 /build
 
-#config
-/config
-/config/default.json
-/config/production.json
-/config/*
-
 # misc
 .DS_Store
 .env.local
@@ -27,6 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-default.json
-production.json

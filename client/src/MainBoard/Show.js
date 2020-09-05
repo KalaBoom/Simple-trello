@@ -6,7 +6,6 @@ function Show() {
     const {boards, sendData, getBoards} = useContext(Context)
     
     const deleteBoard = async idBoard => {
-        console.log(idBoard)
         await sendData(`/delete/board/${idBoard}`)
         getBoards()
     }

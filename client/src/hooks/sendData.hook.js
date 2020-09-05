@@ -7,7 +7,6 @@ const useSendData = () => {
         setLoading(true)
 
         try {
-            console.log(url)
             const response = await fetch(url, {method: 'POST'})
         
             if(!response.ok) {

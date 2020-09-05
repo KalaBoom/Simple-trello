@@ -1,0 +1,4 @@
+{
+    "port": 5000,
+    "mongoDB": "mongodb+srv://admin:1q2w3e@boards-columns-cards.55tpq.mongodb.net/<dbname>?retryWrites=true&w=majority"
+}

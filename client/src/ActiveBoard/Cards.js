@@ -5,7 +5,6 @@ import CreateCard from './CreateCard'
 const Cards = ({cards, idColumn}) => {
     const {sendData, getColumns} = useContext(context)
     const deleteCard = async idCard => {
-        console.log(idCard)
         await sendData(`/delete/card/${idCard}`)
         getColumns()
     }
