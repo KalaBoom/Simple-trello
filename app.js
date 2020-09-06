@@ -13,7 +13,7 @@ app.use(express.json({extended:true}))
 
 app.use((req,res,next) => {
     const data = `${req.method} ${req.url}`
-    fs.appendFile('server.log', data + '\n', () => {})
+    console.log(data)
     next()
 })
 

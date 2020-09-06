@@ -3024,3 +3024,8 @@ POST /delete/card/5f5365c5c40442398080ced5
 GET /5f5365b4c40442398080ced2
 POST /create/card/5f5365bec40442398080ced3/new%20card
 GET /5f5365b4c40442398080ced2
+GET /
+GET /static/css/main.547680b9.chunk.css
+GET /static/js/2.5d16aeae.chunk.js
+GET /static/js/main.3670d544.chunk.js
+GET /all
